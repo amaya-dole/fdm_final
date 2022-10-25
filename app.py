@@ -22,11 +22,11 @@ def predict():
     output='{0:.{1}f}'.format(prediction[0][1], 2)
 
     if output>str(0.7):
-        return render_template('heart_disease_prediction.html',pred='Your Heart is in Danger.\nProbability of disease occuring is {}'.format(output),bhai="Your Heart is in Danger")
+        return render_template('heart_disease_predict.html',pred='Your Heart is in Danger.\nProbability of disease occuring is {}'.format(output),bhai="Your Heart is in Danger")
     elif output>str(0.4):
-        return render_template('heart_disease_prediction.html',pred='Your Heart is Moderately Safe. Take More Care.\n Probability of disease occuring is {}'.format(output),bhai="Your Heart is Moderately Safe for now. Take More Care.")
+        return render_template('heart_disease_predict.html',pred='Your Heart is Moderately Safe. Take More Care.\n Probability of disease occuring is {}'.format(output),bhai="Your Heart is Moderately Safe for now. Take More Care.")
     else:
-        return render_template('heart_disease_prediction.html',pred='Your Heart is safe.\n Probability of disease occuring is {}'.format(output),bhai="Your Heart is Safe.")
+        return render_template('heart_disease_predict.html',pred='Your Heart is safe.\n Probability of disease occuring is {}'.format(output),bhai="Your Heart is Safe.")
 
 
 if __name__ == '__main__':
