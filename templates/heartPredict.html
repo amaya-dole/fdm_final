@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Heart Disease Prediction</title>
+
+<link rel = "stylesheet" href = "../static/styles.css">
+<style>
+#bposition{
+ border: none;
+ color: white;
+ padding: 16px 32px;
+ background-color : none;
+ position : absolute;
+ left:500px;
+ top :285px;
+ }
+#bposition:hover {
+  
+  color: #2E8B57;
+}
+
+</style>
+</head>
+<body>
+	<div class = "header">
+		<h1>|    Heart Disease Prediction</h1>
+	</div>
+	<br><br><br><br><br>
+	<h1 align = "center">Predict Before You Suffer</h1>
+	
+	<div class = "main">
+	<img src = "../static/logo.png" class = "logo">
+	
+	<form action="/predict" method="post" class="formCSS">
+		<table class="table">
+			<tr>
+				<td>
+					<label for="age">Age</label>
+					<br>
+					<input   id="age" name='age'type="text" class="validate">
+				</td>
+				<td>
+					<label for="sex">Gender</label>
+					<br>
+					<!-- <input   id="sex" name='sex'type="text" class="validate"> -->
+						<select name="sex" id="sex">
+							<option value="1">Male</option>
+							<option value="0">Female</option>
+						</select> 
+				</td>
+				<td>
+					<label for="cp">Chest Pain</label>
+					<br>
+					<!-- <input   id="cp" name='cp'type="text" class="validate"> -->
+					<select name="cp" id="cp">
+						<option value="0">No Pain</option>
+						<option value="1">Low Pain</option>
+						<option value="2">Moderate Pain</option>
+						<option value="3">High Pain</option>
+					</select> 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="thalach">Maximum Heart Rate</label>
+					<br>
+					<input   id="thalach" name='thalach' type="text" class="validate">
+						
+				</td>
+				<td>
+					<label for="ex">Heart Pain at High Exercise</label>
+					<br>
+					<select name="ex" id="ex">
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</select>
+				</td>
+				<td>
+					<label for="st">ST Value of ECG</label>
+					<br>
+					<input   id="st" name='st' type="text" class="validate">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="slope">Slope</b></label>
+					<br>
+					<select name="slope" id="slope">
+						<option value="0">No Slope</option>
+						<option value="1">Low Slope</option>
+						<option value="2">High Slope</option>
+					</select>
+				</td>
+				<td>
+					<label for="ca"> Coloured Major Vessels Count</label>
+					<br>
+					<select name="ca" id="ca">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select> 
+				</td>
+				<td>
+					<label for="thal">Thalesimia</label>
+					<br>
+					<select name="thal" id="thal">
+						<option value="0">Normal</option>
+						<option value="1">Fixed Defect</option>
+						<option value="2">Reversable Defect</option>
+					</select>                    </td>
+			</tr>
+			<tr>
+				<td></td>
+			<td>
+				<button type="submit" class="button">Predict Probability</button>
+			</td>
+			</tr>
+		</table>
+	</form>
+	<br><br>
+        <div class="pred">{{pred}}</div><br>
+	
+	<br><br><br><br><br>
+	</div>
+	<div class ="footer">
+		<table class="ftbl">
+		 <tr><td><img src = "../static/copy.png" class ="icon" width = "20px" length = "20px"> All rights reserved<td>
+		</tr>
+		
+		</table>
+		
+	</div>
+
+</body>
+</html>
+<!-- <html>
+    <head>
+        <title>Heart Disease Prediction</title>
+        <link rel = "stylesheet" href = "../static/styles.css">
+    </head>
+    <body>
+        <h1>Heart Disease Prediction</h1>
+        <form action="/predict" method="post" class="formCSS">
+            <table class="table">
+                <tr>
+                    <td>
+                        <label for="age"><b>Age</b></label>
+                        <br>
+                        <input   id="age" name='age'type="text" class="validate">
+                    </td>
+                    <td>
+                        <label for="sex"><b>Gender</b></label>
+                        <br>
+                        
+                            <select name="sex" id="sex">
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                            </select> 
+                    </td>
+                    <td>
+                        <label for="cp"><b>Chest Pain</b></label>
+                        <br>
+                    
+                        <select name="cp" id="cp">
+                            <option value="0">No Pain</option>
+                            <option value="1">Low Pain</option>
+                            <option value="2">Moderate Pain</option>
+                            <option value="3">High Pain</option>
+                        </select> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="thalach">Maximum Heart Rate</label>
+                        <br>
+                        <input   id="thalach" name='thalach' type="text" class="validate">
+                            
+                    </td>
+                    <td>
+                        <label for="ex"><b>Heart Pain at High Exercise</b></label>
+                        <br>
+                        <select name="ex" id="ex">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="st"><b>ST Value of ECG</b></label>
+                        <br>
+                        <input   id="st" name='st' type="number" class="validate">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="slope"><b>Slope</b></label>
+                        <br>
+                        <select name="slope" id="slope">
+                            <option value="0">No Slope</option>
+                            <option value="1">Low Slope</option>
+                            <option value="2">High Slope</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="ca"><b>Number of Major Vessels Coloured</b></label>
+                        <br>
+                        <select name="ca" id="ca">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select> 
+                    </td>
+                    <td>
+                        <label for="thal"><b>Thalesimia</b></label>
+                        <br>
+                        <select name="thal" id="thal">
+                            <option value="0">Normal</option>
+                            <option value="1">Fixed Defect</option>
+                            <option value="2">Reversable Defect</option>
+                        </select>                    </td>
+                </tr>
+                <div class="row center">
+
+                    <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+                  </div>
+            </table>
+        </form>
+        <br>
+        {{pred}}<br>
+    </body>
+</html> -->
