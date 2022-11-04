@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-model=pickle.load(open('heartDiseaseModel.pkl','rb'))
+model=pickle.load(open('heartPrediction.pkl','rb'))
 
 
 @app.route('/')
